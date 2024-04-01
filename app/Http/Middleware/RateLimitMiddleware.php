@@ -21,7 +21,7 @@ class RateLimitMiddleware
 
         // Check if there is an active session for the IP address
         if (Cache::has('session_' . $ip)) {
-            $prompt = 'Another session in progress. Do you want to close the previous session and start a new one?';
+            $prompt = 'Previous sessions in progress and does not allow new sessions.';
             return response()->json(['message' => $prompt], 403);
         }
 
